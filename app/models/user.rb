@@ -16,6 +16,7 @@ class User < ApplicationRecord
 	has_many :haves, class_name: 'Have', source: :have
 	has_many :have_items, through: :haves, class_name: 'Item', source: :item
 
+	#Want function
 	def want(item)
 		self.wants.find_or_create_by(item_id: item.id)
 	end
